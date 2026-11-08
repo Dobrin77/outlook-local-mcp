@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "outlook-local": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${CLAUDE_PLUGIN_ROOT}/server/outlook-mcp.ps1"
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "outlook-local",
+  "version": "0.3.1",
+  "description": "Search, read, organise and save attachments from the mail classic Outlook keeps on this Windows PC. Never deletes or sends.",
+  "author": {
+    "name": "Dobrin77"
+  },
+  "homepage": "https://github.com/Dobrin77/outlook-local-mcp",
+  "repository": "https://github.com/Dobrin77/outlook-local-mcp",
+  "license": "MIT",
+  "keywords": ["outlook", "email", "pst", "windows", "mcp"]
+}

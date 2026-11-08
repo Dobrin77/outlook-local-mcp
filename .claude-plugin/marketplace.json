@@ -1,0 +1,14 @@
+{
+  "name": "outlook-local-mcp",
+  "description": "Claude plugin that works with the mail classic Outlook keeps on a Windows PC.",
+  "owner": {
+    "name": "Dobrin77"
+  },
+  "plugins": [
+    {
+      "name": "outlook-local",
+      "source": "./plugins/outlook-local",
+      "description": "Search, read, organise and save attachments from the mail classic Outlook keeps on this Windows PC. Never deletes or sends."
+    }
+  ]
+}
