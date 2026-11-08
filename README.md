@@ -109,6 +109,10 @@ Classic Outlook is not installed, or only "New Outlook" is in use. Install or sw
 
 This plugin is shared as-is, in the hope that it is useful. Issues and pull requests are welcome and will be looked at on a best-effort basis, without any guarantee of support.
 
+## Acknowledgements
+
+Written by Dobrin Tassev together with [Claude Code](https://claude.com/claude-code) (Anthropic), which did most of the coding, testing and the security review.
+
 ## License
 
 [MIT](LICENSE)
