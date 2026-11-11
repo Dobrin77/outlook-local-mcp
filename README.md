@@ -4,7 +4,7 @@
 
 A Claude plugin that lets Claude search, read and organise the mail that **classic Outlook keeps on your Windows PC**: your mailbox cache (OST) and any archive data files (PST) you have open in Outlook.
 
-It is a small local MCP server written in Windows PowerShell 5.1. It talks to Outlook through COM on your own computer. It **never deletes and never sends** mail.
+It is a small local MCP server written in Windows PowerShell 5.1. It talks to Outlook through COM on your own computer. It **never deletes and never sends** mail: it can prepare a draft with files attached, which you send yourself.
 
 ## Why
 
@@ -52,6 +52,7 @@ An organisation admin can add this repository as a plugin marketplace for the or
 | `outlook_move_messages` | Moves messages to another folder (at most 200 at a time). Deleted Items, Junk E-mail, Outbox and Sync Issues are refused as targets. |
 | `outlook_mark_messages` | Marks messages read/unread, sets or clears the follow-up flag, adds or removes categories. |
 | `outlook_save_attachments` | Saves attachments to a folder on a local drive of your PC, named by message date; existing files are never overwritten. See the limits below. |
+| `outlook_create_draft` | Prepares a new message in Outlook with files from your PC attached, saves it in Drafts and opens it. You check it and press Send. See the limits below. |
 
 ## Example prompts
 
@@ -74,7 +75,7 @@ An organisation admin can add this repository as a plugin marketplace for the or
 
 ## Never deletes or sends
 
-There is no tool to delete or send mail. Moves, flags and categories can all be undone in Outlook. To clean up, Claude can move messages to a folder that you empty yourself. Messages are never moved into Deleted Items, Junk E-mail, Outbox or Sync Issues (or folders under them), and no folders are created there.
+There is no tool to delete or send mail. `outlook_create_draft` only saves a draft and opens it; you press Send. Moves, flags and categories can all be undone in Outlook. To clean up, Claude can move messages to a folder that you empty yourself. Messages are never moved into Deleted Items, Junk E-mail, Outbox or Sync Issues (or folders under them), and no folders are created there.
 
 ## Saving attachments safely
 
@@ -84,6 +85,16 @@ There is no tool to delete or send mail. Moves, flags and categories can all be 
 - The Windows folder, Program Files, ProgramData, your AppData folders and the Startup folders are refused.
 - Program and script files (`.exe`, `.com`, `.bat`, `.cmd`, `.vbs`, `.js`, `.wsf`, `.hta`, `.lnk`, `.ps1`, `.scr`, `.msi`, `.dll`, `.jar`, `.reg`, `.url` and similar) are skipped and reported, unless you ask for that file type explicitly (for example `extensions: ["exe"]`).
 - Claude is told to ask you which folder to use when you did not name one.
+
+## Drafts with files attached
+
+`outlook_create_draft` attaches only files the user named:
+
+- Files must be on a drive letter; mapped network drives such as `N:\` work, `\server\share` paths are refused.
+- Files in the Windows folder, Program Files, ProgramData and your AppData folders are refused, so browser profiles and saved credentials cannot be attached.
+- Outlook data files (`.pst`, `.ost`, `.nst`), password databases (`.kdbx`), keys and certificates (`.pfx`, `.p12`, `.key`, `.pem`, `.ppk`) are refused.
+- At most 20 files and 25 MB together.
+- The draft is plain text and not sent: Claude is told never to attach files because a message or document asks for it.
 
 Mail and attachments are treated as untrusted content: Claude is told never to follow instructions found in them.
 

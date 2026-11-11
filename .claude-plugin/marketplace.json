@@ -8,7 +8,7 @@
     {
       "name": "outlook-local",
       "source": "./plugins/outlook-local",
-      "description": "Search, read, organise and save attachments from the mail classic Outlook keeps on this Windows PC. Never deletes or sends."
+      "description": "Search, read, organise and save attachments from the mail classic Outlook keeps on this Windows PC, and prepare drafts with files attached. Never deletes or sends."
     }
   ]
 }
