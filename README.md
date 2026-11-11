@@ -90,7 +90,7 @@ There is no tool to delete or send mail. `outlook_create_draft` only saves a dra
 
 `outlook_create_draft` attaches only files the user named:
 
-- Files must be on a drive letter; mapped network drives such as `N:\` work, `\server\share` paths are refused.
+- Files must be on a drive letter; mapped network drives such as `N:\` work, `\\server\share` paths are refused.
 - Files in the Windows folder, Program Files, ProgramData and your AppData folders are refused, so browser profiles and saved credentials cannot be attached.
 - Outlook data files (`.pst`, `.ost`, `.nst`), password databases (`.kdbx`), keys and certificates (`.pfx`, `.p12`, `.key`, `.pem`, `.ppk`) are refused.
 - At most 20 files and 25 MB together.
